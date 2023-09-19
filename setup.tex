@@ -1,0 +1,53 @@
+% Set the ACM Template
+\documentclass[sigconf]{acmart}
+
+% Format (removes footnote)
+\settopmatter{printacmref=false}
+\renewcommand\footnotetextcopyrightpermission[1]{} 
+
+% Setup packages
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{babel}
+\usepackage{subcaption}
+\usepackage{appendix}
+\usepackage{caption}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+\usepackage{pdfpages}
+
+% Set the path for media
+\graphicspath{ {media/} } 
+\pagenumbering{arabic}
+
+\begin{document}
+
+% Metadata
+\include{meta/metadata}
+\include{meta/abstract}
+\include{meta/keywords}
+\include{meta/header}
+
+\maketitle
+
+\input{chapters/introduction}
+\input{chapters/related}
+\input{chapters/methodology}
+\input{chapters/results}
+\input{chapters/conclusion}
+\input{chapters/discussion}
+\input{chapters/future}
+\input{chapters/acknowledgement}
+
+% Reference format
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{references}
+
+\include{appendix}
+
+\end{document}
