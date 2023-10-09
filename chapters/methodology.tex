@@ -1,1 +1,52 @@
-\section {Methodology}
+\section {Methodology - Abhilash}
+
+\subsection{Glushko 6 Questions - Abhilash and Chris}
+
+\subsection{Data Dictionary and Metadata - Chris}
+
+\subsection{Ontology - Chris} 
+
+\subsection{Data Model - Abhilash} 
+
+\subsection{Technical Implementation of the website - Camilla and Danny}
+
+\subsection{Machine Learning Model}
+\subsubsection{Data-set presentation}
+Bellow the surface provides a data-set\cite{DatasetBelow} of all the objects resulting from the excavations. The data is provided in the form of a .csv file, with 139190 rows and 163 columns. Each row corresponds to an object. Describing each object is well outside of the scope of the purposes of this section, however, an explanation of the relevant columns is necessary. \\
+The following columns are relevant for the purposes of the ML model: 
+\begin{itemize}
+    \item vondstnummer - represents a unique inventory number, in the form of a string. Every object has a vondstnummer. Example: "NZC1.00001MTL001".
+    \item  object -  a description of the contents of the object. Example: "sieve residue"
+    \item  subcategorie - a categorisation of the object material. Example: "metal: copper alloy"
+    \item objectdeel - describes the object type morphologically (if it is part of a bigger object, a set, etc). Example: "fragment"
+    \item vlak\_min - Describes the minimum depth at which the object might have been found. Example: "-22.0"
+    \item vlak\_max - Describes the maximum depth at which the object might have been found. Example: "-22.01"
+    \item begin\_dat - The beginning of the interval of the estimated year of the object. Example: "1675.0"
+    \item eind\_dat - End of the interval of the estimated year of the object. Example: "1725.0"
+    \item niveau1 - The category in which the object is placed. Example:  "Communication \& Exchange"
+\end{itemize}
+For the columns \textit{object, subcategorie, objectdeel, vlak\_min, vlak\_max, begin\_dat, eind\_dat,  niveau1} there are rows in the dataset in which one or more of these columns are blank.  \\
+The column \textit{niveau1} can take the value of one of 12 pre-determined categories, as well as the value "Not classified". As previously mentioned, there are rows where this column is blank. 
+\subsubsection{Objectives}
+Our objective is to create a machine-learning model that will complete the missing data for the "niveau1" column. This means that our model will predict a value in the niveau1 column, for the rows where currently that column is blank or has the value "Not classified". The prediction will be based on the values in the \textit{object, subcategorie, objectdeel, vlak\_min, vlak\_max, begin\_dat, eind\_dat,  niveau1} columns, which will act like input to the machine-learning model. 
+\subsubsection{Deliverables}
+In order to achieve our objectives, the following files are delivered: 
+\begin{itemize}
+    \item process\_dataset.py - a simple python script that takes the original 163 column .csv files and consolidates it into another .csv files that only contains the columns of interest. The name of this .csv file is "selected\_dataset.csv" 
+    \item machine\_learning.py - this python script is the backbone of the machine-learning process. It is a more-complex script that does the following steps: 
+        \begin{itemize}
+            \item Loads the "selected\_dataset.csv" dataset
+            \item Preprocess the data (completes the values with 0 or placeholders here they are blank", etc)
+            \item Converts text stings to vectors
+            \item Splits the data into unlabeled and labelled data based on the values in the "niveau1" column
+            \item Splits the labelled data using a training, testing, validation split
+            \item Builds the ML model
+            \item Compiles the model
+            \item Trains the model
+            \item Tests the model
+            \item Predicts the values of niveau1 for the unlabelled data
+            \item Saves the updated dataset into a file named predicted\_dataset.csv
+        \end{itemize}
+    \item predicted\_dataset.csv - a file containing the dataset in selected\_dataset.csv, but with the column selected\_dataset.csv fully completed. 
+\end{itemize}
+\subsubsection{Model description}
