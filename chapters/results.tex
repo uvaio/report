@@ -1,16 +1,14 @@
 \section{Results - Abhilash}
 
-\subsection{Website - Camilla and Danny}
+\subsection{Website}
 
-The original website has a lot of individual objects and detailed metadata about properties. The aim of the website was mainly to \textit{summarise} the collection to allow the before-mentioned users to explore the broad dataset and find interesting patterns.
-
-The design is based on the branding of the original below the surface projects and follows standard information and visual design principles.
+The original website has a lot of individual objects and detailed metadata about physical properties. The aim of the website was mainly to \textit{summarise} the collection to allow the before-mentioned users to explore the broad dataset and find interesting patterns. Then the user would be able to  \textit{create a subset} of the dataset based on physical properties and categories by further filtering the dataset. The design is based on the branding of the original below the surface project and follows standard information architecture (e.g. primary navigation, form filters) and visual design principles.
 
 \subsubsection{Overview summary page}
-Create a storytelling kind of page with 5 sections. HIER ENUMERATE ALLE SECTIES MET CHART TYPES
+On loading of the website the user is greeted with a 'summary' overview page (shown in Figure \ref{fig:summary}) with introductory text and three visualiations that display; \textit{time of origin} in horizontal stacked bar charts, \textit{functional properties} in a polar chart and \textit{material usage} in a doughnut chart. The page has a primary top navigation to 'smooth-scroll' to each section and a 'create a subset' floating action button to navigate to the collection detail page.
 
 \subsubsection{Collection detail subset}
-Based on the categories of the summary page a user can create a subset of the collection.
+Based on the categories of the summary page a user can create a subset of the collection on the 'create a subset' detail page. Above the fold the user has the option to use the same \textit{category filters} from the summary page. Then a user additionally has the option to click on the filter drowpdown to expose more form filter options using checkbox with more granular options such as location found, size and dimensions and material technique. A 'download subset' button allows the user to download the generated subset in .csv format.
 
 \subsection{Machine Learning Model}
 Following training the neural network over 50 ephocs, the accuracy of the neural network was tested. An accuracy of aprox. 75\% was obtained over the test data, which the neural network has never seen before.The accuracy is considered satisfactory for the given application. Furthermore, the neural network was used to clasify the remaining unlabelled data, the results being demed
