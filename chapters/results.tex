@@ -12,8 +12,18 @@ Create a storytelling kind of page with 5 sections. HIER ENUMERATE ALLE SECTIES 
 \subsubsection{Collection detail subset}
 Based on the categories of the summary page a user can create a subset of the collection.
 
-\subsection{Machine Learning Model - Radu}
+\subsection{Machine Learning Model}
+Following training the neural network over 50 ephocs, the accuracy of the neural network was tested. An accuracy of aprox. 75\% was obtained over the test data, which the neural network has never seen before.The accuracy is considered satisfactory for the given application. Furthermore, the neural networ was used to clasify the remaining 
 
-\subsection{Dataset - Abhilash}
+\subsection{Dataset}
+
+\subsubsection{Initial Dataset}
+The initial dataset as provided in belowthesurface website was structured as a flat model with each row representing an individual archaeological object. This flat structure included many columns, each corresponding to specific attributes associated with the objects. These attributes stored a wide range of material categories, such as ceramics, building materials, fauna, glass, and more. While the flat model provided an accessible format for data entry, it led to redundant storage of certain information, challenging in visualization, particularly common attributes that applied to all finds.
+
+\subsubsection{Data Transformation and Normalization}
+As the dataset was provided in a flat model, which presented certain challenges in terms of data redundancy and efficient visualization. To address these issues and enhance the integrity of the data, a normalization process was done to fit the data into the relational model as described in the Data Model section.
+
+\subsubsection{Normalized datasets}
+All the datasets in accordance with the datamodel is uploaded into the datasets repository of GitHub. A csv file for each table of the data model is created based on the initial dataset.
 
 \subsection{Ontology and Data Dictionary - Chris}

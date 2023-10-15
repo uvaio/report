@@ -1,22 +1,59 @@
 \section {Methodology - Abhilash}
 
-\subsection{Glushko 6 Questions - Abhilash and Chris}
+\subsection{Glushko's Questions on Information Organisation}
 
-\subsubsection{What is being organized?}
+\subsubsection{What is the main purpose of the website?}
+The above the surface website focus to provide an interactive platform for users to explore the archaeological finds from the excavation of Amsterdam’s North-South metro line.
+
+\subsubsection{Who is it for?}
+The website is for anyone interested in archaeology, history, and Amsterdam’s heritage. The website has collections of items from different time period so can act as a gateway for collectors of ancient antique artifacts.
 
 \subsubsection{Why it is being organized?}
-
-\subsubsection{How it is being organized?}
+Users can use the website to learn about the archaeological finds from the excavation of Amsterdam’s North-South metro line, view images of the artifacts, and read about their historical significance.
 
 \subsubsection{Where it is being organized?}
+The website provides information about the project, a timeline of the excavation, and a gallery of images of the artifacts found during the excavation
 
-\subsubsection{How much}
+\subsubsection{How it is being organized?}
+The website is organized into four main sections: Home, Project, Timeline, and Gallery. Each section has sub-sections that provide more detailed information.
 
 \subsection{Data Dictionary and Metadata - Chris}
 
 \subsection{Ontology - Chris} 
 
-\subsection{Data Model - Abhilash} 
+\subsection{Data Model}
+
+The data model for the website is designed to manage the archaeological finds efficiently. The primary goals of this data model are:
+
+\begin{itemize}
+\item Normalize the data to minimize redundancy and maintain data integrity.
+\item Provide a unified structure for different material categories.
+\item Enable the storage of common attributes shared by all archaeological finds.
+\end{itemize}
+
+ \begin{figure*}[!]
+    \centering
+    \includegraphics[width=0.8\paperwidth]{media/final data model.png}
+    \caption{Data Model}
+    \label{fig:data model}
+\end{figure*}
+
+The data model as shows in Figure \ref{fig:data model} is structured into following main parts:
+
+\subsubsection{Object}
+This table is central to the data organisation for common attributes of all archaeological finds. It includes information such as the ObjectID, project code, category, subcategory, weight, object name, object part, number of fragments, and temporal data (start date, end date). The ObjectID field acts as the identifier for all objects and is the primary key.
+
+\subsubsection{Location}
+This table contains fields for location information (trench number, level number, feature number, and section number), as well as keywords and classification levels. A binary field indicates whether the find is listed on the website. ObjectID is relating the location with Object as foreign key.
+
+\subsubsection{Functional classification}
+This table contains the main functional usage of the object. It is divided into catergories and level of functional classification between Level 1 to Level 4.
+
+\subsubsection{Related Objects}
+The "Related Objects" table is a critical component of the data model, as it enables the establishment of relationships between different archaeological finds. This table serves as a bridge to link findings that may have connections between each other. In the context of the model, it enables the website to visualize associations between artifacts and materials within and across categories.
+
+\subsubsection{Material-Specific Tables}
+Each material category (e.g., Ceramics, Glass, Building Materials, etc.) is represented by a dedicated table linked to the Object Table through a foreign key relationship. These material-specific tables store attributes that are unique to each category, including dimensions, production details, and any other specialized data relevant to the category.
 
 \subsection{Technical Implementation of the website}
 
@@ -68,3 +105,16 @@ In order to achieve our objectives, the following files are delivered:
     \item predicted\_dataset.csv - a file containing the dataset in selected\_dataset.csv, but with the column selected\_dataset.csv fully completed. 
 \end{itemize}
 \subsubsection{Model description}
+Given the problem, a relatively simple neural network model was chosen. It consists of 1 input layer, 2 hidden layers and one output layer. The input layer has 7 input neurons, coresponding to the following variables:
+\begin{itemize}
+    \item subcategorie
+    \item object
+    \item objectdeel
+    \item vlak\_min
+    \item vlak\_max
+    \item begin\_dat
+    \item eind\_dat
+\end{itemize}
+For the text fields, a Text-to-Vector conversion was necesarry. We used the word2vec\_model for that. The data of the other columns was normalised. \\
+The hidden layers were composed of 10 neurons (dense layers) with a relu activation function. The outputted has 12 neurons, with a softmax activation function, each neuron corresponding to one of the 12 category values niveau1 can take. \\ 
+The neural network was trained on the labelled data, using a 80 - 10 - 10 training - validation - testing split.
