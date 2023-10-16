@@ -1,4 +1,4 @@
-\section {Methodology - Abhilash}
+\section {Methodology}
 
 \subsection{Glushko's Questions on Information Organisation}
 
@@ -17,9 +17,26 @@ The website provides information about the project, a timeline of the excavation
 \subsubsection{How it is being organized?}
 The website is organized into four main sections: Home, Project, Timeline, and Gallery. Each section has sub-sections that provide more detailed information.
 
-\subsection{Data Dictionary and Metadata - Chris}
+\subsection{Data Dictionary and Metadata}
 
-\subsection{Ontology - Chris} 
+The below the surface website provides users with a data dictionary as part of the available data downloads \cite{BelowAmsterdam}.  However, the information provided was not sufficient for the needs of the project.  For example, the location of the sites related to the project code provided for each object.  However, there was no description provided of which project code related to which site.  It was only through research on the website that we were able to determine which site related to which project code.  The meta data provided was left unchanged, as the enriched description in the data dictionary met the needs of the project.
+
+\subsection{Ontology} 
+Development of the ontology consisted of 4 steps: Define scope, Enumerate important entities, Build the class hierarchy, and Specify the relationships between entities.
+
+Six questions were posed to define and limit the scope of the ontology.  These questions were based on the needs identified by the user personas.
+\begin{itemize}
+    \item Where the finds are from?
+    \item When are the finds from?
+    \item Where are the finds found?
+    \item What materials are the finds made of?
+    \item What functional use does the find have?
+    \item What weight do the finds have?
+\end{itemize}
+
+The ontology was developed in WebProtégé \footnote{https://webprotege.stanford.edu}.  As the ontology was developed the scope questions were used to ensure that additional aspects and classes were not investigated. The metadata fields in the data dictionary were used as a starting point, specifically those referring to the physical characteristics of the objects.  The other key metadata fields was the 'vondstnummer' or find number.  This is a unique identifier for each of the objects in the database.  It is created with a project code suffix.  This project code also relates to the location where the object was found during excavations.  The class names were also selected based on existing schema defined on the web \footnote{https://schema.org/}.  Where a pre-defined schema was not available, for example with metadata headers in database, rdfs:label was used.     
+
+Once the key classes were listed, a hierarchy was created.  For example, trench, level, feature, and selection were all hierarchically sorted under each respective project code, as they related to the differing levels of location accuracy within each site. Once the classes and hierarchies had been listed, relationships between each were defined.  This was also at the point that defined schemas were linked to metadata headings found in the database. And relationships between dutch metadata names in the database with their English descriptions were made. For example the triple "put, rdfs:sameAs, trench.  With the established hierarchy and relationships as a foundation, the ontology was created over a number of iterations. To test the ontology, the WebWOWL web tool was used \footnote{https://service.tib.eu/webvowl/}.
 
 \subsection{Data Model}
 
@@ -67,7 +84,7 @@ The processed and transformed dataset was used as a primary data source of which
 
 \subsection{Machine Learning Model}
 \subsubsection{Data-set presentation}
-Bellow the surface provides a data-set\cite{DatasetBelow} of all the objects resulting from the excavations. The data is provided in the form of a .csv file, with 139190 rows and 163 columns. Each row corresponds to an object. Describing each object is well outside of the scope of the purposes of this section, however, an explanation of the relevant columns is necessary. \\
+Bellow the surface provides a data-set\cite{BelowAmsterdam} of all the objects resulting from the excavations. The data is provided in the form of a .csv file, with 139190 rows and 163 columns. Each row corresponds to an object. Describing each object is well outside of the scope of the purposes of this section, however, an explanation of the relevant columns is necessary. \\
 The following columns are relevant for the purposes of the ML model: 
 \begin{itemize}
     \item vondstnummer - represents a unique inventory number, in the form of a string. Every object has a vondstnummer. Example: "NZC1.00001MTL001".

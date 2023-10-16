@@ -1,6 +1,6 @@
-\section{Results - Abhilash}
+\section{Results}
 
-\subsection{Website - Camilla and Danny}
+\subsection{Website}
 
 The original website has a lot of individual objects and detailed metadata about properties. The aim of the website was mainly to \textit{summarise} the collection to allow the before-mentioned users to explore the broad dataset and find interesting patterns.
 
@@ -13,7 +13,7 @@ Create a storytelling kind of page with 5 sections. HIER ENUMERATE ALLE SECTIES 
 Based on the categories of the summary page a user can create a subset of the collection.
 
 \subsection{Machine Learning Model}
-Following training the neural network over 50 ephocs, the accuracy of the neural network was tested. An accuracy of aprox. 75\% was obtained over the test data, which the neural network has never seen before.The accuracy is considered satisfactory for the given application. Furthermore, the neural network was used to clasify the remaining unlabelled data, the results being demed
+Following training the neural network over 50 ephocs, the accuracy of the neural network was tested. An accuracy of aprox. 75\% was obtained over the test data, which the neural network has never seen before.The accuracy is considered satisfactory for the given application. Furthermore, the neural network was used to clasify the remaining unlabelled data, the results being deemed satisfactory.
 
 \subsection{Dataset}
 
@@ -26,4 +26,7 @@ As the dataset was provided in a flat model, which presented certain challenges 
 \subsubsection{Normalized datasets}
 All the datasets in accordance with the datamodel is uploaded into the datasets repository of GitHub. A csv file for each table of the data model is created based on the initial dataset.
 
-\subsection{Ontology and Data Dictionary - Chris}
+\subsection{Ontology and Data Dictionary}
+The initial data dictionary provided by the below the surface website contained limited descriptions of the metadata. This posed a challenge to understanding the information in the flatfile dataset.  Further work was performed to enrich the information so that it would be useful.  For example, adding information in about which geographic locations referred to which project code.
+
+The ontology was created from scratch as none was supplied with the original website.  Over 35 classes were created which covered aspects of the find-number, location, and various physical characteristics of the objects.  It is now possible to determine which project code refers to which physical location.  All of the finds were imported as individuals and assigned as a type of 'vondstnummer' or 'find'.  To import the find numbers into a turtle format correctly, the full stops needed to be removed from the find numbers.  Having the full stop included resulted in the turtle file becoming unreadable. The code to assign the find number to the correct class in the ontology is provided.    
